@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from "react";
 
 function App() {
-  const [userData, setuserData] = useState([]);
-  
+  const [userData, setUserData] = useState([]);
+
   useEffect(() => {
     fetch("/users")
       .then((response) => response.json())
       .then((data) => {
-        setuserData(data[0]);
-        console.log(data[0]);
+        setUserData(data); // Update to set all user data
       });
   }, []);
 
   return (
     <div>
-      {typeof userData.users === "undefined" ? (
+      {userData.length === 0 ? (
         <p>Loading...</p>
       ) : (
-        userData.users.map((user, i) => <p key={i}>{user}</p>)
+        <div>
+          {userData.map((user, i) => (
+            <p key={i}>{user.username}</p>
+          ))}
+        </div>
       )}
     </div>
   );
