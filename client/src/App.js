@@ -1,27 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Users from "./pages/Users";
+import Topics from "./pages/Topics";
+import MainNavBar from "./components/MainNavBar";
 
 function App() {
-  const [userData, setUserData] = useState([]);
-
-  useEffect(() => {
-    fetch("/users")
-      .then((response) => response.json())
-      .then((data) => {
-        setUserData(data); // Update to set all user data
-      });
-  }, []);
+  const navBarBackgroundColor = "blue";
+  const navBarTextColor = "white";
 
   return (
     <div>
-      {userData.length === 0 ? (
-        <p>Loading...</p>
-      ) : (
-        <div>
-          {userData.map((user, i) => (
-            <p key={i}>{user.username}</p>
-          ))}
-        </div>
-      )}
+      <MainNavBar
+        navBarBackgroundColor={navBarBackgroundColor}
+        navBarTextColor={navBarTextColor}
+      />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Topics />} />
+          <Route path="/users" element={<Users />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
