@@ -1,73 +1,136 @@
-/* main.css */
+/* Facebook-Inspired Light Theme Colors */
+:root {
+    --light-bg: #F5F6F7;
+    --light-text: #1C1E21;
+    --light-accent: #3b5998;
+    --light-accent-hover: #4f75c5;
+    --light-border: #DADDE1;
+    --light-hover-bg: #E7F3FF;
+    --light-icon: #a6b0c5;
+}
+
+/* Facebook-Inspired Dark Theme Colors */
+:root {
+    --dark-bg: #242526;
+    --dark-text: #E4E6EB;
+    --dark-accent: #3A3B3C;
+    --dark-accent-hover: #676869;
+    --dark-border: #3E4042;
+    --dark-hover-bg: #484A4D;
+    --dark-icon: #BCC0C4;
+}
 
 
 .main-navbar {
     margin-top: 0;
-    padding-top: 1%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
     position: fixed;
-    background-color: green;
     width: 100%;
-    top: 0;
-    /* Position at the top of the viewport */
     z-index: 1000;
-    /* Ensure it stays on top of other content */
-    /* transition: background-color 0.3s ease; */
+    transition: background-color 0.2s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
-#dark .main-navbar-button {
-    margin: 0 10px;
-    background-color: #124f6e;
-    /* Reset the background color */
+
+.main-navbar-content {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4%;
+    padding-bottom: 1%;
+    transition: padding-top 0.2s ease, padding-bottom 0.2s ease;
+}
+
+
+.main-navbar.scrolled {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    /* border-bottom: 1px solid var(--light-border); */
+    border-bottom: 1px solid var(--dark-border);
+}
+
+#dark .main-navbar.scrolled {
+    border-bottom: 1px solid var(--dark-border);
+}
+
+#light .main-navbar.scrolled {
+    border-bottom: 1px solid var(--light-border);
+}
+
+.main-navbar.scrolled .main-navbar-content {
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.main-navbar-button {}
+
+/* Light Mode Styles */
+#light .main-navbar {
+    background-color: var(--light-bg);
 }
 
 #light .main-navbar-button {
     margin: 0 10px;
-    background-color: #dcdcdc;
-    /* Reset the background color */
+    background-color: var(--light-accent);
 }
 
-/* Hover style for main-navbar-button in dark theme */
-#dark .main-navbar-button:hover {
-    background-color: #0e3e56;
-    /* Dark background color */
-    /* outline: 2px solid blue; */
-    /* Blue outline */
-}
-
-/* Hover style for main-navbar-button in light theme */
 #light .main-navbar-button:hover {
-    background-color: #c3c3c3;
-    /* Slightly different dark background color */
-    /* outline: 2px solid blue; */
-    /* Blue outline */
+    background-color: var(--light-accent-hover);
 }
 
-
-
-
-.translucent-navbar {
-    background-color: rgba(0, 0, 255, 0.6);
-    /* Adjust the RGBA values to your preferred color and opacity */
-}
-
-/* Icon color for dark theme */
-#dark .home-icon {
-    color: white;
-    /* White color for icons in dark mode */
-}
-
-/* Icon color for light theme */
 #light .home-icon {
-    color: rgb(85, 85, 85);
-    /* background-color: #10425b; */
-    /* Dark grey color for icons in light mode */
+    color: var(--light-icon);
 }
 
+#light h2 {
+    color: var(--light-text);
+}
 
-/* Topics.JS */
+#light .category-box {
+    border: 2px solid var(--light-border);
+    color: var(--light-text);
+}
+
+#light .category-box:hover {
+    background-color: var(--light-hover-bg);
+    color: var(--light-text);
+}
+
+/* Dark Mode Styles */
+#dark .main-navbar {
+    background-color: var(--dark-bg);
+}
+
+#dark .main-navbar-button {
+    margin: 0 10px;
+    background-color: var(--dark-accent);
+}
+
+#dark .main-navbar-button:hover {
+    background-color: var(--dark-accent-hover);
+}
+
+#dark .home-icon {
+    color: var(--dark-icon);
+}
+
+#dark h2 {
+    color: var(--dark-text);
+}
+
+#dark .category-box {
+    border: 2px solid var(--dark-border);
+    color: var(--dark-text);
+}
+
+#dark .category-box:hover {
+    background-color: var(--dark-hover-bg);
+    color: var(--dark-text);
+}
 
 .category-box {
     width: 50%;
@@ -80,11 +143,6 @@
     margin-bottom: 10px;
     text-decoration: none;
     color: black;
-}
-
-.category-box:hover {
-    background-color: black;
-    color: white;
 }
 
 .category-box a {
@@ -114,25 +172,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    padding-bottom: 100px;
+    margin-top: 5%;
 }
 
 #light {
-    background-color: white;
-    /* faster */
-    transition: background-color 0.2s, color 0.2s;
-    /* slow */
-    /* transition: background-color 0.3s ease; */
-
+    /* background-color: var(--light-bg); */
+    transition: background-color 0.4s, color 0.4s;
 }
 
 #dark {
-    background-color: #092635;
-    /* faster */
-    transition: background-color 0.2s, color 0.2s;
-    /* slow */
-    /* transition: background-color 0.3s ease; */
+    /* background-color: var(--dark-bg); */
+    transition: background-color 0.4s, color 0.4s;
+}
 
-
+html,
+body {
+    transition: background-color 0.4s ease;
 }
