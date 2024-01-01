@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Button } from "@mui/material";
+import { Button, Tooltip } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import Person2Icon from "@mui/icons-material/Person2";
@@ -39,29 +39,32 @@ function MainNavBar() {
 
   const logoImage = theme === "dark" ? WhiteTransparent : BlackTransparent;
 
+  const themeButtonClass =
+    theme === "dark" ? "Activate Light Mode" : "Activate Dark Mode";
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <nav className={navbarClass} id={theme}>
         <div className="main-navbar-content">
           {/* Icons on the left */}
           <div style={{ display: "flex", alignItems: "center" }}>
-            <Button className="main-navbar-button" onClick={toggleTheme}>
-              <ThemeIcon className="home-icon" />
-            </Button>
-            <Button className="main-navbar-button">
-              <Person2Icon className="home-icon" />
-            </Button>
+            <Tooltip title={themeButtonClass} className="tooltip">
+              <Button className="main-navbar-button" onClick={toggleTheme}>
+                <ThemeIcon className="home-icon" />
+              </Button>
+            </Tooltip>
+            <Tooltip title="View Profile" className="tooltip">
+              <Button className="main-navbar-button">
+                <Person2Icon className="home-icon" />
+              </Button>
+            </Tooltip>
           </div>
 
           {/* App Name on the right */}
           <div style={{ display: "flex", alignItems: "center" }}>
-            {/* <Link to="/">Home</Link> */}
-            {/* <Button className="main-navbar-button">App Name</Button> */}
-
-            <img
-              src={logoImage}
-              style={{ maxWidth: "14%", maxHeight: "14%", marginLeft: "auto" }}
-            />
+            <Tooltip title="Home" className="tooltip">
+              <img src={logoImage} className="nav-logo" />
+            </Tooltip>
           </div>
         </div>
       </nav>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function Users() {
+function Users({theme}) {
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,10 @@ function Users() {
   }, []);
 
   return (
-    <div>
+    <div id={theme} style={{ paddingTop: "70px" }}>
+      {" "}
+      {/* Using theme for id */}
+      <body class="body-topics">
       {userData.length === 0 ? (
         <p>Loading...</p>
       ) : (
@@ -22,6 +25,7 @@ function Users() {
           ))}
         </div>
       )}
+      </body>
     </div>
   );
 }

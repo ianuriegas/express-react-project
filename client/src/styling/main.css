@@ -186,6 +186,17 @@
     transition: background-color 0.4s, color 0.4s;
 }
 
+.tooltip {
+    cursor: pointer;
+
+}
+
+.nav-logo {
+    max-width: 14%;
+    max-height: 14%;
+    margin-left: auto;
+}
+
 html,
 body {
     transition: background-color 0.4s ease;
