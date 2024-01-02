@@ -13,19 +13,16 @@ function TopicPage({ theme }) {
       id={theme}
       style={{
         paddingTop: "70px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
       <body
-        class="body-individual-topic"
+        class="body-topics"
         style={{
           // backgroundColor: "blue",
           textAlign: "center",
         }}
       >
-        <h2>{topicName}</h2>
+        <h2>{topicName} Posts</h2>
         <PostCard></PostCard>
         {/* <PostCard></PostCard> */}
       </body>
