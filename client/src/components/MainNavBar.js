@@ -45,27 +45,37 @@ function MainNavBar() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <nav className={navbarClass} id={theme}>
-        <div className="main-navbar-content">
-          {/* Icons on the left */}
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <Tooltip title={themeButtonClass} className="tooltip">
-              <Button className="main-navbar-button" onClick={toggleTheme}>
-                <ThemeIcon className="home-icon" />
-              </Button>
-            </Tooltip>
+        <div
+          className="main-navbar-content"
+            // style={{ backgroundColor: "blue" }}
+        >
+          <Tooltip title={themeButtonClass} className="tooltip">
+            <Button
+              className="main-navbar-button"
+              onClick={toggleTheme}
+              style={{ float: "left" }}
+            >
+              <ThemeIcon className="home-icon" />
+            </Button>
+          </Tooltip>
+
+          <Link to="/users">
             <Tooltip title="View Profile" className="tooltip">
               <Button className="main-navbar-button">
                 <Person2Icon className="home-icon" />
               </Button>
             </Tooltip>
-          </div>
+          </Link>
 
-          {/* App Name on the right */}
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <Link to="/">
             <Tooltip title="Home" className="tooltip">
-              <img src={logoImage} className="nav-logo" />
+              <img
+                src={logoImage}
+                className="nav-logo"
+                style={{ float: "right", marginRight: "1%" }}
+              />
             </Tooltip>
-          </div>
+          </Link>
         </div>
       </nav>
     </ThemeContext.Provider>

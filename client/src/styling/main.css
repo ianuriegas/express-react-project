@@ -35,11 +35,9 @@
 
 
 .main-navbar-content {
-    width: 70%;
+    width: 65%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content: center;
     align-items: center;
     padding-top: 4%;
     padding-bottom: 1%;
@@ -48,8 +46,6 @@
 
 
 .main-navbar.scrolled {
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    /* border-bottom: 1px solid var(--light-border); */
     border-bottom: 1px solid var(--dark-border);
 }
 
@@ -65,8 +61,6 @@
     padding-top: 1%;
     padding-bottom: 1%;
 }
-
-.main-navbar-button {}
 
 /* Light Mode Styles */
 #light .main-navbar {
@@ -192,9 +186,8 @@
 }
 
 .nav-logo {
-    max-width: 14%;
-    max-height: 14%;
-    margin-left: auto;
+    width: 140px;
+    /* margin-left: auto; */
 }
 
 html,

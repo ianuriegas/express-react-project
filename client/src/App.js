@@ -1,5 +1,10 @@
 import React, { useState, createContext, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
 import Users from "./pages/Users";
 import Topics from "./pages/Topics";
 import MainNavBar from "./components/MainNavBar";
@@ -29,17 +34,19 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div>
-        <MainNavBar />
-        <Router>
-          <Routes>
-            <Route path="/" element={<Topics theme={theme} />} />
-            <Route path="/users" element={<Users theme={theme} />} />
-            <Route
-              path="/topic-page-template"
-              element={<TopicPageTemplate theme={theme} />}
-            />
-          </Routes>
-        </Router>
+        <BrowserRouter>
+          <MainNavBar />
+          {/* <Router> */}
+            <Routes>
+              <Route path="/" element={<Topics theme={theme} />} />
+              <Route path="/users" element={<Users theme={theme} />} />
+              <Route
+                path="/topic-page-template"
+                element={<TopicPageTemplate theme={theme} />}
+              />
+            </Routes>
+          {/* </Router> */}
+        </BrowserRouter>
       </div>
     </ThemeContext.Provider>
   );
