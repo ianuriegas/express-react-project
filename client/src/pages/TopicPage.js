@@ -4,7 +4,6 @@ import PostCard from "../components/PostCard";
 
 // Search db for the `topicName`
 
-
 function TopicPage({ theme }) {
   const { topicName } = useParams();
 
@@ -13,6 +12,7 @@ function TopicPage({ theme }) {
       id={theme}
       style={{
         paddingTop: "70px",
+        height: "100vh",
       }}
     >
       <body

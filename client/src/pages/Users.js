@@ -12,11 +12,21 @@ function Users({theme}) {
   }, []);
 
   return (
-    <div id={theme} style={{ paddingTop: "70px" }}>
-      {" "}
-      {/* Using theme for id */}
-      <body class="body-topics">
-      <h2>Users</h2>
+    <div
+      id={theme}
+      style={{
+        paddingTop: "70px",
+        height: "100vh"
+      }}
+    >
+      <body
+        class="body-topics"
+        style={{
+          // backgroundColor: "blue",
+          textAlign: "center",
+        }}
+      >
+        <h2>Users</h2>
 
       {userData.length === 0 ? (
         <p>Loading...</p>

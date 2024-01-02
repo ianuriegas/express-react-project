@@ -33,7 +33,13 @@ function Topics({ theme, topicsData }) {
   const containerClassName = `category-container ${theme}-theme`;
 
   return (
-    <div id={theme} style={{ paddingTop: "70px" }}>
+    <div
+      id={theme}
+      style={{
+        paddingTop: "70px",
+        height: "100vh",
+      }}
+    >
       <body
         class="body-topics"
         //   style={{ backgroundColor: "blue" }}
