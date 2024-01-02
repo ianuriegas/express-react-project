@@ -2,10 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import PostCard from "../components/PostCard";
 
-// Search db for the `topicName`
-
-function TopicPage({ theme }) {
+function TopicPage({ theme, topicsData }) {
   const { topicName } = useParams();
+  const posts = topicsData["topics"][topicName]?.Posts || [];
 
   return (
     <div
@@ -15,16 +14,11 @@ function TopicPage({ theme }) {
         height: "100vh",
       }}
     >
-      <body
-        class="body-topics"
-        style={{
-          // backgroundColor: "blue",
-          textAlign: "center",
-        }}
-      >
-        <h2>{topicName} Posts</h2>
-        <PostCard></PostCard>
-        {/* <PostCard></PostCard> */}
+      <body class="body-topics">
+        <h2>{topicName}</h2>
+        {posts.map((post, index) => (
+          <PostCard key={index} post={post} />
+        ))}
       </body>
     </div>
   );
