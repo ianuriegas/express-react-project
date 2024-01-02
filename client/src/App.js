@@ -9,7 +9,7 @@ import Users from "./pages/Users";
 import Topics from "./pages/Topics";
 import MainNavBar from "./components/MainNavBar";
 import TopicPage from "./pages/TopicPage";
-
+import topicsData from "./data/data.json"
 export const ThemeContext = createContext();
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
           <MainNavBar />
           {/* <Router> */}
           <Routes>
-            <Route path="/" element={<Topics theme={theme} />} />
+            <Route path="/" element={<Topics theme={theme} topicsData={topicsData} />} />
             <Route path="/users" element={<Users theme={theme} />} />
             <Route
               path="/topics/:topicName"

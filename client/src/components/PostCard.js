@@ -14,6 +14,9 @@ function PostCard() {
         >
           User
         </Typography>
+        <Typography variant="body2" color="text.secondary">
+          5 minutes ago
+        </Typography>
       </CardContent>
       <CardMedia
         component="img"

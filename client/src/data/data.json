@@ -1,0 +1,48 @@
+{
+  "topics": {
+    "Art": {
+      "Posts": [
+        {
+          "username": "ArtLover",
+          "date-and-time": "2023-12-01T15:30:00",
+          "image": "art_image.jpg",
+          "text-body": "Check out this amazing new art piece!",
+          "link": "http://exampleart.com",
+          "replies": [
+            {
+              "username": "CreativeSoul",
+              "date-and-time": "2023-12-01T16:00:00",
+              "text-body": "Wow, that's stunning!"
+            }
+          ]
+        }
+      ]
+    },
+    "Astrology & Space Exploration": {
+      "Posts": [
+        {
+          "username": "StarGazer",
+          "date-and-time": "2023-12-02T20:45:00",
+          "text-body": "Tonight's sky is breathtaking!",
+          "link": "http://starnights.com"
+        }
+      ]
+    },
+    "Books": {
+      "Posts": [
+        {
+          "username": "Bookworm",
+          "date-and-time": "2023-12-03T10:15:00",
+          "text-body": "Just finished reading 'The Great Adventure'. Highly recommend!",
+          "replies": [
+            {
+              "username": "LiteratureFan",
+              "date-and-time": "2023-12-03T11:30:00",
+              "text-body": "I loved that book too!"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

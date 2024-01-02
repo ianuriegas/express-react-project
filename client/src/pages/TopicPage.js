@@ -2,6 +2,9 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import PostCard from "../components/PostCard";
 
+// Search db for the `topicName`
+
+
 function TopicPage({ theme }) {
   const { topicName } = useParams();
 

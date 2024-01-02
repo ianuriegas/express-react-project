@@ -1,29 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Topics({ theme }) {
-  const topics = [
-    "Art",
-    "Astrology & Space Exploration",
-    "Books",
-    "Cooking",
-    "DIY Projects",
-    "Education",
-    "Environment & Sustainability",
-    "Fashion",
-    "Gaming",
-    "Gardening",
-    "Health & Wellness",
-    "History",
-    "Memes",
-    "Movies",
-    "Music",
-    "Photography",
-    "Science",
-    "Sports",
-    "Technology",
-    "Travel",
-  ];
+function Topics({ theme, topicsData }) {
+  const topics = Object.keys(topicsData["topics"]);
 
   const truncateTopic = (topic) => {
     return topic.length > 64 ? topic.substring(0, 61) + "..." : topic;
