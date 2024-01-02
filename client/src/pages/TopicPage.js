@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import PostCard from "../components/PostCard";
 
 function TopicPage({ theme }) {
   const { topicName } = useParams();
@@ -22,6 +23,8 @@ function TopicPage({ theme }) {
         }}
       >
         <h2>{topicName}</h2>
+        <PostCard></PostCard>
+        {/* <PostCard></PostCard> */}
       </body>
     </div>
   );
