@@ -16,6 +16,8 @@ function Users({theme}) {
       {" "}
       {/* Using theme for id */}
       <body class="body-topics">
+      <h2>Users</h2>
+
       {userData.length === 0 ? (
         <p>Loading...</p>
       ) : (

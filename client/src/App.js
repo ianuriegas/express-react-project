@@ -8,7 +8,7 @@ import {
 import Users from "./pages/Users";
 import Topics from "./pages/Topics";
 import MainNavBar from "./components/MainNavBar";
-import TopicPageTemplate from "./pages/TopicPageTemplate";
+import TopicPage from "./pages/TopicPage";
 
 export const ThemeContext = createContext();
 
@@ -37,14 +37,14 @@ function App() {
         <BrowserRouter>
           <MainNavBar />
           {/* <Router> */}
-            <Routes>
-              <Route path="/" element={<Topics theme={theme} />} />
-              <Route path="/users" element={<Users theme={theme} />} />
-              <Route
-                path="/topic-page-template"
-                element={<TopicPageTemplate theme={theme} />}
-              />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Topics theme={theme} />} />
+            <Route path="/users" element={<Users theme={theme} />} />
+            <Route
+              path="/topics/:topicName"
+              element={<TopicPage theme={theme} />}
+            />
+          </Routes>
           {/* </Router> */}
         </BrowserRouter>
       </div>

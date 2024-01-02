@@ -1,37 +1,44 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Topics({ theme }) {
-  // Accepting theme as a prop
   const topics = [
     "Art",
+    "Astrology & Space Exploration",
     "Books",
     "Cooking",
+    "DIY Projects",
+    "Education",
+    "Environment & Sustainability",
     "Fashion",
     "Gaming",
+    "Gardening",
+    "Health & Wellness",
+    "History",
     "Memes",
     "Movies",
     "Music",
+    "Photography",
     "Science",
     "Sports",
-    "Travel",
     "Technology",
+    "Travel",
   ];
 
-  // Optionally, you can define classNames based on the theme
+  const truncateTopic = (topic) => {
+    return topic.length > 64 ? topic.substring(0, 61) + "..." : topic;
+  };
+
   const containerClassName = `category-container ${theme}-theme`;
 
   return (
     <div id={theme} style={{ paddingTop: "70px" }}>
-      {" "}
-      {/* Using theme for id */}
       <body class="body-topics">
         <h2>Topics</h2>
         <div className={containerClassName}>
-          {" "}
-          {/* Using the conditional className */}
           {topics.map((topic) => (
             <div class="category-box">
-              <a href="/">{topic}</a>
+              <Link to={`/topics/${topic}`}>{truncateTopic(topic)}</Link>
             </div>
           ))}
         </div>

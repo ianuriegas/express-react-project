@@ -170,6 +170,14 @@
     margin-top: 5%;
 }
 
+.body-individual-topic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 100px;
+    margin-top: 5%;
+    width: 65%
+}
 #light {
     /* background-color: var(--light-bg); */
     transition: background-color 0.4s, color 0.4s;
@@ -187,7 +195,8 @@
 
 .nav-logo {
     width: 140px;
-    /* margin-left: auto; */
+    float: right;
+    margin-right: 1%;
 }
 
 html,

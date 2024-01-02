@@ -47,14 +47,10 @@ function MainNavBar() {
       <nav className={navbarClass} id={theme}>
         <div
           className="main-navbar-content"
-            // style={{ backgroundColor: "blue" }}
+          // style={{ backgroundColor: "blue" }}
         >
           <Tooltip title={themeButtonClass} className="tooltip">
-            <Button
-              className="main-navbar-button"
-              onClick={toggleTheme}
-              style={{ float: "left" }}
-            >
+            <Button className="main-navbar-button" onClick={toggleTheme}>
               <ThemeIcon className="home-icon" />
             </Button>
           </Tooltip>
@@ -69,11 +65,7 @@ function MainNavBar() {
 
           <Link to="/">
             <Tooltip title="Home" className="tooltip">
-              <img
-                src={logoImage}
-                className="nav-logo"
-                style={{ float: "right", marginRight: "1%" }}
-              />
+              <img src={logoImage} className="nav-logo" />
             </Tooltip>
           </Link>
         </div>
