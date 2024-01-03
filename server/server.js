@@ -60,6 +60,31 @@ app.post("/users", async (req, res) => {
   }
 });
 
+const TopicSchema = new mongoose.Schema({
+  topics: {
+    type: mongoose.Schema.Types.Mixed, // Use Mixed type for a flexible schema
+  },
+});
+
+const TopicModel = mongoose.model("Topic", TopicSchema);
+
+app.get("/topics", (req, res) => {
+  TopicModel.find({})
+    .then(function (topicsData) {
+      // Transform data to the desired format
+      let transformedTopics = {};
+      topicsData.forEach((doc) => {
+        Object.assign(transformedTopics, doc.topics);
+      });
+
+      res.json({ topics: transformedTopics }); // Send transformed data
+    })
+    .catch(function (err) {
+      console.log(err);
+      res.status(500).json({ error: "Failed to get topics." });
+    });
+});
+
 // API LISTENER
 app.listen(5001, () => {
   console.log("Server started on port 5001");
