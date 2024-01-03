@@ -10,7 +10,7 @@ function CommentCard({ reply }) {
       {username}
       <br></br>
 
-      {dateAndTime}
+      {new Date(dateAndTime).toLocaleString()}
       <br></br>
 
       {textBody}

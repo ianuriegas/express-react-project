@@ -2,9 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import PostCard from "../components/PostCard";
 
-function TopicPage({ theme, topicsData }) {
+function SingleTopicPage({ theme, topicsData }) {
   const { topicName } = useParams();
-  const posts = topicsData["topics"][topicName]?.Posts || [];
+  const posts =
+    topicsData && topicsData["topics"] && topicsData["topics"][topicName]
+      ? topicsData["topics"][topicName].Posts || []
+      : [];
 
   return (
     <div
@@ -16,12 +19,14 @@ function TopicPage({ theme, topicsData }) {
     >
       <body class="body-topics">
         <h2>{topicName}</h2>
-        {posts.map((post, index) => (
-          <PostCard key={index} post={post} />
-        ))}
+        {posts.length === 0 ? (
+          <p>No posts yet.</p> // Display message if there are no posts
+        ) : (
+          posts.map((post, index) => <PostCard key={index} post={post} />)
+        )}
       </body>
     </div>
   );
 }
 
-export default TopicPage;
+export default SingleTopicPage;

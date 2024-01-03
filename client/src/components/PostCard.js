@@ -7,7 +7,7 @@ function PostCard({ post }) {
   const username = post["username"];
   const dateAndTime = post["date-and-time"];
   const textBody = post["text-body"];
-  //   const image = post["image"];
+  // const image = post["image"];
   const link = post["link"];
   const replies = post?.replies || [];
   return (
@@ -26,7 +26,6 @@ function PostCard({ post }) {
         </Typography>
         <Typography variant="body2">
           {new Date(dateAndTime).toLocaleString()}
-          {/* {post["date-and-time"]} */}
         </Typography>
       </CardContent>
       {/* {image && <CardMedia component="img" src={image} alt={username} />} */}
@@ -37,7 +36,11 @@ function PostCard({ post }) {
             <Link href={link}>{link}</Link>
           </Typography>
         )}
-        {/* {replies[0]["text-body"]} */}
+        {replies.length > 0 && (
+          <Typography variant="body2" style={{ marginTop: "10px" }}>
+            Replies
+          </Typography>
+        )}
         {replies.map((reply, index) => (
           <CommentCard key={index} reply={reply} />
         ))}

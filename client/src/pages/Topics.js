@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Topics({ theme, topicsData }) {
-  const topics = Object.keys(topicsData["topics"]);
+  // Check if topicsData["topics"] is available
+  const topics = topicsData && topicsData["topics"] ? Object.keys(topicsData["topics"]) : [];
 
   const truncateTopic = (topic) => {
     return topic.length > 64 ? topic.substring(0, 61) + "..." : topic;
@@ -18,17 +19,11 @@ function Topics({ theme, topicsData }) {
         height: "100vh",
       }}
     >
-      <body
-        class="body-topics"
-        //   style={{ backgroundColor: "blue" }}
-      >
+      <body className="body-topics">
         <h2>Topics</h2>
-        <div
-          className={containerClassName}
-          //   style={{ backgroundColor: "green" }}
-        >
+        <div className={containerClassName}>
           {topics.map((topic) => (
-            <div class="category-box">
+            <div key={topic} className="category-box"> {/* Added key prop for better performance */}
               <Link to={`/topics/${topic}`}>{truncateTopic(topic)}</Link>
             </div>
           ))}

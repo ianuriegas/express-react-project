@@ -29,6 +29,20 @@
               "text-body": "Wow, that's stunning!"
             }
           ]
+        },
+        {
+          "username": "ArtLover",
+          "date-and-time": "2023-12-01T15:30:00",
+          "image": "art_image.jpg",
+          "text-body": "Check out this amazing new art piece!",
+          "link": "http://exampleart.com",
+          "replies": [
+            {
+              "username": "CreativeSoul",
+              "date-and-time": "2023-12-01T16:00:00",
+              "text-body": "Wow, that's stunning!"
+            }
+          ]
         }
       ]
     },
@@ -58,22 +72,22 @@
         }
       ]
     },
-    "Cooking": {},
-    "DIY Projects": {},
-    "Education": {},
-    "Environment & Sustainability": {},
-    "Fashion": {},
-    "Gaming": {},
-    "Gardening": {},
-    "Health & Wellness": {},
-    "History": {},
-    "Memes": {},
-    "Movies": {},
-    "Music": {},
-    "Photography": {},
-    "Science": {},
-    "Sports": {},
-    "Technology": {},
-    "Travel": {}
+    "Cooking": { "Posts": [] },
+    "DIY Projects": { "Posts": [] },
+    "Education": { "Posts": [] },
+    "Environment & Sustainability": { "Posts": [] },
+    "Fashion": { "Posts": [] },
+    "Gaming": { "Posts": [] },
+    "Gardening": { "Posts": [] },
+    "Health & Wellness": { "Posts": [] },
+    "History": { "Posts": [] },
+    "Memes": { "Posts": [] },
+    "Movies": { "Posts": [] },
+    "Music": { "Posts": [] },
+    "Photography": { "Posts": [] },
+    "Science": { "Posts": [] },
+    "Sports": { "Posts": [] },
+    "Technology": { "Posts": [] },
+    "Travel": { "Posts": [] }
   }
 }

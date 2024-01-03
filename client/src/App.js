@@ -9,53 +9,55 @@ import Users from "./pages/Users";
 import Topics from "./pages/Topics";
 import MainNavBar from "./components/MainNavBar";
 import SingleTopicPage from "./pages/SingleTopicPage";
-import data from "./data/data.json";
-
-const topicsData = data;
 
 export const ThemeContext = createContext();
 
 function App() {
-  // Check local storage for a saved theme, default to 'dark' if not found
+  const [topicsData, setTopicsData] = useState({}); // Initialize topicsData state
   const storedTheme = localStorage.getItem("theme") || "dark";
   const [theme, setTheme] = useState(storedTheme);
 
-  // Function to toggle the theme
+  useEffect(() => {
+    document.body.className = theme;
+  
+    fetch("/topics")
+      .then((response) => response.json())
+      .then((data) => {
+        setTopicsData(data); // Assuming your API returns an object
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+        setTopicsData({}); // Set to empty object in case of error
+      });
+  }, [theme]);
+  
+
   const toggleTheme = () => {
     setTheme((currentTheme) => {
       const newTheme = currentTheme === "light" ? "dark" : "light";
-      localStorage.setItem("theme", newTheme); // Save new theme to local storage
+      localStorage.setItem("theme", newTheme);
       return newTheme;
     });
   };
 
-  // Effect to apply the theme on initial load
-  useEffect(() => {
-    document.body.className = theme; // Or any other logic to apply the theme
-  }, [theme]);
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div>
-        <BrowserRouter>
-          <MainNavBar />
-          {/* <Router> */}
-          <Routes>
-            <Route
-              path="/"
-              element={<Topics theme={theme} topicsData={topicsData} />}
-            />
-            <Route path="/users" element={<Users theme={theme} />} />
-            <Route
-              path="/topics/:topicName"
-              element={
-                <SingleTopicPage theme={theme} topicsData={topicsData} />
-              }
-            />
-          </Routes>
-          {/* </Router> */}
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <MainNavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={<Topics theme={theme} topicsData={topicsData} />}
+          />
+          <Route path="/users" element={<Users theme={theme} />} />
+          <Route
+            path="/topics/:topicName"
+            element={
+              <SingleTopicPage theme={theme} topicsData={topicsData} />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
     </ThemeContext.Provider>
   );
 }
