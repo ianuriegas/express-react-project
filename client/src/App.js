@@ -8,8 +8,8 @@ import {
 import Users from "./pages/Users";
 import Topics from "./pages/Topics";
 import MainNavBar from "./components/MainNavBar";
-import TopicPage from "./pages/TopicPage";
-import data from "./data/data.json"
+import SingleTopicPage from "./pages/SingleTopicPage";
+import data from "./data/data.json";
 
 const topicsData = data;
 
@@ -41,11 +41,16 @@ function App() {
           <MainNavBar />
           {/* <Router> */}
           <Routes>
-            <Route path="/" element={<Topics theme={theme} topicsData={topicsData} />} />
+            <Route
+              path="/"
+              element={<Topics theme={theme} topicsData={topicsData} />}
+            />
             <Route path="/users" element={<Users theme={theme} />} />
             <Route
               path="/topics/:topicName"
-              element={<TopicPage theme={theme} topicsData={topicsData} />}
+              element={
+                <SingleTopicPage theme={theme} topicsData={topicsData} />
+              }
             />
           </Routes>
           {/* </Router> */}
