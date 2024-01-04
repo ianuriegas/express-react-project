@@ -13,11 +13,16 @@
               "username": "CreativeSoul",
               "date-and-time": "2023-12-01T16:00:00",
               "text-body": "Wow, that's stunning!"
+            },
+            {
+              "username": "Lebron James",
+              "date-and-time": "2023-12-03T16:00:00",
+              "text-body": "LION"
             }
           ]
         },
         {
-          "username": "ArtLover",
+          "username": "ArtLover1",
           "date-and-time": "2023-12-01T15:30:00",
           "image": "art_image.jpg",
           "text-body": "Check out this amazing new art piece!",
@@ -31,7 +36,7 @@
           ]
         },
         {
-          "username": "ArtLover",
+          "username": "ArtLover2",
           "date-and-time": "2023-12-01T15:30:00",
           "image": "art_image.jpg",
           "text-body": "Check out this amazing new art piece!",
