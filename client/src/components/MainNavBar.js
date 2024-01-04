@@ -29,10 +29,21 @@ function MainNavBar() {
   }, []);
 
   useEffect(() => {
+    // Changes background color 
     const newBackgroundColor =
       theme === "dark" ? "var(--dark-bg)" : "var(--light-bg)";
     document.documentElement.style.backgroundColor = newBackgroundColor;
     document.body.style.backgroundColor = newBackgroundColor;
+
+    // Changes navbar border color
+    const navbarBorderColor =
+      theme === "dark"
+        ? "var(--dark-navbar-border)"
+        : "var(--light-navbar-border)";
+    document.documentElement.style.setProperty(
+      "--navbar-border",
+      navbarBorderColor
+    );
   }, [theme]);
 
   const navbarClass = `main-navbar ${isScrolled ? "scrolled" : ""} ${theme}`;
