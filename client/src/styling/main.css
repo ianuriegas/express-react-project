@@ -178,6 +178,7 @@
     margin-top: 5%;
     width: 65%
 }
+
 #light {
     /* background-color: var(--light-bg); */
     transition: background-color 0.4s, color 0.4s;
@@ -202,4 +203,21 @@
 html,
 body {
     transition: background-color 0.4s ease;
+}
+
+#dark .postcard {
+    background-color: #3A3B3C;
+
+}
+
+#light .postcard {
+    background-color: #3b5998;
+}
+
+#dark .commentcard {
+    background-color: #BCC0C4,
+}
+
+#light .commentcard {
+    background-color: #a6b0c5,
 }

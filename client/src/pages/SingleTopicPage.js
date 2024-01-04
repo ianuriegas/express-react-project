@@ -22,7 +22,7 @@ function SingleTopicPage({ theme, topicsData }) {
         {posts.length === 0 ? (
           <p>No posts yet.</p> // Display message if there are no posts
         ) : (
-          posts.map((post, index) => <PostCard key={index} post={post} />)
+          posts.map((post, index) => <PostCard key={index} post={post} theme={theme} />)
         )}
       </body>
     </div>

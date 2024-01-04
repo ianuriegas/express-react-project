@@ -3,7 +3,7 @@ import React from "react";
 import Link from "@mui/material/Link";
 import CommentCard from "./CommentCard";
 
-function PostCard({ post }) {
+function PostCard({ theme, post }) {
   const username = post["username"];
   const dateAndTime = post["date-and-time"];
   const textBody = post["text-body"];
@@ -12,13 +12,15 @@ function PostCard({ post }) {
   const replies = post?.replies || [];
   return (
     <Card
+      id={theme}
+      className="postcard"
       sx={{
         width: "45%",
-        backgroundColor: "#3A3B3C",
         marginBottom: "20px",
-        color: "white",
+        color: "white" /* DARK */,
         padding: "10px",
       }}
+      
     >
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -42,7 +44,15 @@ function PostCard({ post }) {
           </Typography>
         )}
         {replies.map((reply, index) => (
-          <CommentCard key={index} reply={reply} />
+          <Card
+            id={theme}
+            className="commentcard"
+            style={{
+              padding: "10px",
+            }}
+          >
+            <CommentCard key={index} reply={reply} theme={theme} />
+          </Card>
         ))}
       </CardContent>
     </Card>
