@@ -7,7 +7,8 @@
     --light-border: #DADDE1;
     --light-hover-bg: #E7F3FF;
     --light-icon: #a6b0c5;
-    --light-navbar-border: #DADDE1; /* Adjust the color as needed */
+    --light-navbar-border: #DADDE1;
+    /* Adjust the color as needed */
 
 }
 
@@ -20,7 +21,8 @@
     --dark-border: #3E4042;
     --dark-hover-bg: #484A4D;
     --dark-icon: #BCC0C4;
-    --dark-navbar-border: #3E4042; /* Adjust the color as needed */
+    --dark-navbar-border: #3E4042;
+    /* Adjust the color as needed */
 
 }
 
@@ -50,7 +52,8 @@
 
 
 .main-navbar.scrolled {
-    border-bottom: 1px solid var(--navbar-border); /* Use the variable */
+    border-bottom: 1px solid var(--navbar-border);
+    /* Use the variable */
 }
 
 .main-navbar.scrolled .main-navbar-content {
@@ -187,7 +190,7 @@
 
 .tooltip {
     cursor: pointer;
-
+    position: relative;
 }
 
 .nav-logo {
@@ -202,18 +205,55 @@ body {
 }
 
 #dark .postcard {
-    background-color: #3A3B3C;
+    background-color: var(--dark-accent);
 
 }
 
 #light .postcard {
-    background-color: #3b5998;
+    background-color: var(--light-accent);
 }
 
-#dark .commentcard {
+/* #dark .commentcard {
     background-color: #BCC0C4,
 }
 
 #light .commentcard {
     background-color: #a6b0c5,
+} */
+
+.comment-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    /* background-color: #fff; */
+    /* Assuming 'background.paper' refers to white color */
+    box-shadow: 0px 0px 24px 0px rgba(0, 0, 0, 0.5);
+    /* Adjust shadow as needed */
+    padding: 18px;
+    /* Adjust according to your design (4 units, assuming 1 unit = 4px) */
+    height: 90%;
+    border-radius: .5%;
+}
+
+#light .comment-modal {
+    background-color: var(--light-bg);
+}
+
+#dark .comment-modal {
+    background-color: var(--dark-bg);
+}
+
+#light .comment-modal-card {
+    background-color: var;
+}
+
+#dark .comment-modal-card {
+    background-color: var(--dark-accent);
+
+}
+
+#light .comment-modal-card {
+    background-color: var(--light-accent);
 }
