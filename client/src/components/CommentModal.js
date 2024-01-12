@@ -1,20 +1,15 @@
 import React from "react";
-import { Box, Typography, Modal } from "@mui/material";
+import { Box, Modal, Stack } from "@mui/material";
 import CommentCard from "./CommentCard";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: "40%",
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  p: 4,
-  height: "90%",
-};
+function CommentModal({ open, handleClose, post, theme }) {
+  const username = post["username"];
+  const dateAndTime = post["date-and-time"];
+  const textBody = post["text-body"];
+  // const image = post["image"];
+  const link = post["link"];
+  const replies = post?.replies || [];
 
-function CommentModal({ open, handleClose, replies, theme }) {
   return (
     <Modal
       open={open}
@@ -23,13 +18,12 @@ function CommentModal({ open, handleClose, replies, theme }) {
       aria-describedby="modal-modal-description"
       id={theme}
     >
-      <Box
-        // sx={style}
-          className="comment-modal"
-      >
-        {replies.map((reply, index) => (
-          <CommentCard key={index} reply={reply} theme={theme} />
-        ))}
+      <Box className="comment-modal">
+        <Stack spacing={2}>
+          {replies.map((reply, index) => (
+            <CommentCard key={index} reply={reply} theme={theme} />
+          ))}
+        </Stack>
       </Box>
     </Modal>
   );

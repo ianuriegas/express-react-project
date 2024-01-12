@@ -193,6 +193,12 @@
     position: relative;
 }
 
+.post-tooltip {
+    cursor: pointer;
+    position: relative;
+}
+
+
 .nav-logo {
     width: 140px;
     float: right;

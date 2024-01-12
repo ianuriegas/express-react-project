@@ -3,9 +3,7 @@ import {
   Box,
   Card,
   CardContent,
-  CardMedia,
   IconButton,
-  Modal,
   Stack,
   Tooltip,
   Typography,
@@ -13,8 +11,6 @@ import {
 import React, { useState } from "react";
 import Link from "@mui/material/Link";
 import CommentModal from "./CommentModal"; // Import the new component
-
-import CommentCard from "./CommentCard";
 
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
@@ -27,6 +23,7 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 
 import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import "../styling/main.css";
+import PostToolTip from "./PostToolTip";
 
 function PostCard({ theme, post }) {
   const username = post["username"];
@@ -34,7 +31,6 @@ function PostCard({ theme, post }) {
   const textBody = post["text-body"];
   // const image = post["image"];
   const link = post["link"];
-  const replies = post?.replies || [];
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -92,39 +88,33 @@ function PostCard({ theme, post }) {
         >
           {/* <Tooltip title="Like" className="tooltip"> */}
           {/* Like Button */}
-          <Tooltip title="Like" className="tooltip">
-            <IconButton
-              aria-label="like"
-              style={{ color: "white" }}
-              onClick={handleLike}
-            >
-              {liked ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
-            </IconButton>
-          </Tooltip>
+          <PostToolTip
+            title="Like"
+            onClick={handleLike}
+            ariaLabel="like"
+            iconComponent={liked ? <ThumbUpAltIcon /> : <ThumbUpOffAltIcon />}
+          />
 
-          {/* Dislike Button */}
-          <Tooltip title="Dislike" className="tooltip">
-            <IconButton
-              aria-label="dislike"
-              style={{ color: "white" }}
-              onClick={handleDislike}
-            >
-              {disliked ? <ThumbDownAltIcon /> : <ThumbDownOffAltIcon />}
-            </IconButton>{" "}
-          </Tooltip>
-          <Tooltip title="Comments" className="tooltip">
-            <IconButton
-              aria-label="comment"
-              style={{ color: "white" }}
-              onClick={handleOpen}
-            >
-              <ChatBubbleOutlineIcon />
-            </IconButton>
-          </Tooltip>
+          <PostToolTip
+            title="Dislike"
+            onClick={handleDislike}
+            ariaLabel="dislike"
+            iconComponent={
+              disliked ? <ThumbDownAltIcon /> : <ThumbDownOffAltIcon />
+            }
+          />
+
+          <PostToolTip
+            title="Comments"
+            onClick={handleOpen}
+            ariaLabel="comment"
+            iconComponent={<ChatBubbleOutlineIcon />}
+          />
+
           <CommentModal
             open={open}
             handleClose={handleClose}
-            replies={replies}
+            post={post}
             theme={theme}
           />
         </Stack>
