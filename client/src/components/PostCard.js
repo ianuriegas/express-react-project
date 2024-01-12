@@ -3,9 +3,7 @@ import {
   Box,
   Card,
   CardContent,
-  IconButton,
   Stack,
-  Tooltip,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
@@ -118,22 +116,6 @@ function PostCard({ theme, post }) {
             theme={theme}
           />
         </Stack>
-        {/* {replies.length > 0 && (
-          <Typography variant="body2" style={{ marginTop: "10px" }}>
-            Replies
-          </Typography>
-        )} */}
-        {/* <Card
-          id={theme}
-          className="commentcard"
-          style={{
-            padding: "10px",
-          }}
-        >
-          {replies.map((reply, index) => (
-            <CommentCard key={index} reply={reply} theme={theme} />
-          ))}
-        </Card> */}
       </CardContent>
       {/* {image && <CardMedia component="img" src={image} alt={username} />} */}
     </Card>
