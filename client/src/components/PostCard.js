@@ -23,7 +23,7 @@ import ForwardToInboxIcon from "@mui/icons-material/ForwardToInbox";
 import "../styling/main.css";
 import PostToolTip from "./PostToolTip";
 
-function PostCard({ theme, post }) {
+function PostCard({ theme, post, topicName}) {
   const username = post["username"];
   const dateAndTime = post["date-and-time"];
   const textBody = post["text-body"];
@@ -114,6 +114,7 @@ function PostCard({ theme, post }) {
             handleClose={handleClose}
             post={post}
             theme={theme}
+            topicName={topicName}
           />
         </Stack>
       </CardContent>
