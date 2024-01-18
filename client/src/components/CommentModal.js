@@ -22,17 +22,18 @@ function CommentModal({ open, handleClose, post, theme, topicName }) {
         {/* modal-header */}
         <div
           style={{
-            backgroundColor: "green",
+            // backgroundColor: "green",
             borderRadius: "5px 5px 0px 0px",
             textAlign: "center",
             padding: "3%",
           }}
+          className="modal-header"
         >
           {topicName}
         </div>
 
         {/* modal-content */}
-        <div style={{ padding: "18px" }}>
+        <div style={{ padding: "18px", color: "grey" }}>
           <Stack spacing={2}>
             <Box display="flex" alignItems="center">
               <Avatar sx={{ marginRight: 2 }}>A</Avatar>{" "}
